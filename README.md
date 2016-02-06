@@ -25,14 +25,14 @@ To develop for Zen you need the following tools installed:
 
 Give the new `platform` user all the admin privileges, i.e. make them a super user.
 
-You can reate the `platform` user from the postgresql shell using:
+You can create the `platform` user from the postgresql shell using:
 
 ```
 postgres=# create user platform with superuser password 'QdYx3D5y';
 ```
 
 * You also need to have [Git](https://git-scm.com/) installed in order to get the Community Platform code from [GitHub](https://github.com/coderdojo).
-* You will also need to have [Grunt](http://gruntjs.com/) installed globally: `npm install -g grunt`.
+* You will also need to have the [Grunt](http://gruntjs.com/) client installed globally: `npm install -g grunt-cli`.
 
 ## Code Setup
 
@@ -56,6 +56,9 @@ The `localdev` tool has one system configured, called `zen` (this can be extende
 
 ### localdev init
 
+
+*Note: By default `init` will clone the repositories directly from the CoderDojo Foundation account. If you prefer to clone your own repos, please have a look at how to work with [your own forks](#creating-your-own-forks).*
+
 Next, run `./localdev.js init zen`. Behind the scenes this does the following:
 
 * creates a `workspace-zen` directory
@@ -65,7 +68,7 @@ Next, run `./localdev.js init zen`. Behind the scenes this does the following:
 * an npm install is done in each repo
 * connects to your local PostgreSQL and creates any databases necessary
 
-Note that the `init` command is idempotent, you can run it multiple times with no adverse side effects.
+Note that the `init` command is idempotent, you can run it multiple times with no adverse side effects. Depending on your machine, the first initialisation can take in the order of 10 to 20 minutes to complete.
 
 ### localdev run
 
@@ -137,6 +140,7 @@ As other people contribute, don't forget to update your local repositories !
 To update your local repository:
 
 ```
+$ # grab the latest code changes from the common repository
 $ git fetch origin
 
 $ # then: (like "git pull" which is fetch + merge)
